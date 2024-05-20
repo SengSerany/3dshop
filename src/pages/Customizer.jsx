@@ -37,22 +37,22 @@ const Customizer = () => {
         return <ColorPicker />;
       case "filepicker":
         return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
-      case "aipicker":
-        return (
-          <AIPicker
-            prompt={prompt}
-            setPrompt={setPrompt}
-            generatingImg={generatingImg}
-            handleSubmit={handleSubmit}
-          />
-        );
+      // case "aipicker":
+      //   return (
+      //     <AIPicker
+      //       prompt={prompt}
+      //       setPrompt={setPrompt}
+      //       generatingImg={generatingImg}
+      //       handleSubmit={handleSubmit}
+      //     />
+      //   );
       default:
         return null;
     }
   };
 
   const handleSubmit = async (type) => {
-    if (!prompt) return alert("Please enter a prompt");
+    if (!prompt) return alert("Entrer votre prompt ici");
 
     try {
       setGeneratingImg(true);
@@ -130,13 +130,16 @@ const Customizer = () => {
           >
             <div className="flex items-center min-h-screen">
               <div className="editortabs-container tabs">
-                {EditorTabs.map((tab) => (
-                  <Tab
-                    key={tab.name}
-                    tab={tab}
-                    handleClick={() => setActiveEditorTab(tab.name)}
-                  />
-                ))}
+                {EditorTabs.map(
+                  (tab) =>
+                    tab.name !== "aipicker" && (
+                      <Tab
+                        key={tab.name}
+                        tab={tab}
+                        handleClick={() => setActiveEditorTab(tab.name)}
+                      />
+                    )
+                )}
 
                 {generateTabContent()}
               </div>
