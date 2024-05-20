@@ -35,7 +35,7 @@ const Home = () => {
               {...headContentAnimation}
               className="flex flex-col gap-5"
             >
-              <p className="max-w-md font-normal text-gray-600 text-base">
+              <p className="max-w-md font-normal text-base">
                 Créez votre tee-shirt unique et exclusif grâce à notre outil de
                 personnalisation 3D. <strong>Libérez votre imagination </strong>{" "}
                 et définissez votre propre style.
